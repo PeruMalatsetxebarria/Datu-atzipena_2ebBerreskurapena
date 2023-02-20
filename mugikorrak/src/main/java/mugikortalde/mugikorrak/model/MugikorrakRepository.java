@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MugikorrakRepository { //zertzuk di honek, metoduk? Honek gero MongoDBMugikorraRepository barrun garatu bidi
+public interface MugikorrakRepository {
     List<Mugikorra> findAll();
-    Mugikorra findById(String id);
+    List<Mugikorra> findMarka(String marka);
+    Mugikorra findById(String modeloa);
     Mugikorra save(Mugikorra person);
-    long delete(String izena);
+    Mugikorra save2(Mugikorra person);
+    long delete(String modeloa);
 }

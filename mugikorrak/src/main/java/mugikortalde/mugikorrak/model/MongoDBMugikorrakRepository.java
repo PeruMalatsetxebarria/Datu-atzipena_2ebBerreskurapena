@@ -41,20 +41,42 @@ public class MongoDBMugikorrakRepository implements MugikorrakRepository {
     }
 
     @Override
-    public Mugikorra findById(String id) {
-        return mugikorraCollection.find(eq("_id", new ObjectId(id))).first();        
+    public List<Mugikorra> findMarka(String marka) {
+        return mugikorraCollection.find(eq("marka", marka)).into(new ArrayList<>());
     }
 
     @Override
-    public Mugikorra save(Mugikorra umea) {
-        umea.setId(new ObjectId());
-        mugikorraCollection.insertOne(umea);
-        return umea;
+    public Mugikorra findById(String modeloa) {
+        //return mugikorraCollection.find(eq("modeloa", new ObjectId(modeloa))).first();
+        return mugikorraCollection.find(eq("modeloa", modeloa)).first();
     }
 
     @Override
-    public long delete(String izena) {
-        return mugikorraCollection.deleteMany(eq("izena", izena)).getDeletedCount();
+    public Mugikorra save(Mugikorra mugikorra) {
+        mugikorra.setId(new ObjectId());
+        mugikorraCollection.insertOne(mugikorra);
+        return mugikorra;
+    }
+
+
+
+
+
+    @Override
+    public Mugikorra save2(Mugikorra mugikorra) {
+        /*mugikorra.setId(new ObjectId());
+        //mugikorraCollection.updateOne();
+        mugikorra.replaceOne();*/
+        return mugikorra;
+    }
+
+
+
+
+
+    @Override
+    public long delete(String modeloa) {
+        return mugikorraCollection.deleteMany(eq("modeloa", modeloa)).getDeletedCount();
     } //marka be gehittubida
 
 }

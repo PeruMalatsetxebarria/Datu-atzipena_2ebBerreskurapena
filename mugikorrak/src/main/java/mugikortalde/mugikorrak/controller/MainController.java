@@ -34,6 +34,11 @@ public class MainController {
 		return mugikorrakRepository.findAll();
 	}
 
+    @GetMapping(path = "/mugikorbat/{marka}")
+	public @ResponseBody Iterable<Mugikorra> getMugikorBat(@RequestParam String marka) {
+		return mugikorrakRepository.findMarka(marka);
+	}
+
 
 
 
@@ -62,10 +67,10 @@ public class MainController {
 		return "Saved";
 	}
 	
-	@PutMapping(value = "/ezaugarri_bereziBerri/{mugikorraId}")
-	public ResponseEntity<Mugikorra> updateMugikorra(@Valid @RequestBody String ezaugarri_bereziBerri, @PathVariable String mugikorraId) {
+	@PutMapping(value = "/ezaugarri_bereziBerri/{modeloa}")
+	public ResponseEntity<Mugikorra> updateMugikorra(@Valid @RequestBody String ezaugarri_bereziBerri, @PathVariable String modeloa) {
 		try {
-			Mugikorra mugikorra= mugikorrakRepository.findById(mugikorraId);
+			Mugikorra mugikorra= mugikorrakRepository.findById(modeloa);
 			List<String> ezaugarri_berezi=mugikorra.getEzaugarri_berezi();
 			ezaugarri_berezi.add(ezaugarri_bereziBerri);
 			mugikorra.setEzaugarri_berezi(ezaugarri_berezi);
