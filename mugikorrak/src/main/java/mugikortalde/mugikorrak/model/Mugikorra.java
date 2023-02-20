@@ -12,7 +12,20 @@ public class Mugikorra {
 	private int ram;
 	private String sistema_eragilea;
 	private int memoria;
-    private List<String> pantaila;
+    
+	
+	
+	private List<String> pantaila;
+
+
+
+	private String tamaina;
+    private String resoluzioa;
+	private String mota;
+
+
+
+	private List<String> ezaugarri_berezi;
 
 
     public ObjectId getId() {
@@ -76,20 +89,56 @@ public class Mugikorra {
 
 
 
-	public List<String> getPantaila() {
+	/*public List<String> getPantaila() {
 		return pantaila;
 	}
 
 	public void setPantaila(List<String> pantaila) {
 		this.pantaila = pantaila;
+	}*/
+
+	public String getTamaina() {
+		//tamaina = pantaila.get(0);
+		return tamaina;
 	}
 
+	public void setTamaina(String tamaina) {
+		this.tamaina = tamaina;
+	}
+
+	public String getResoluzioa() {
+		return resoluzioa;
+	}
+
+	public void setResoluzioa(String resoluzioa) {
+		this.resoluzioa = resoluzioa;
+	}
+
+	public String getMota() {
+		return mota;
+	}
+
+	public void setMota(String mota) {
+		this.mota = mota;
+	}
+
+
+
+
+
+	public List<String> getEzaugarri_berezi() {
+		return ezaugarri_berezi;
+	}
+
+	public void setEzaugarri_berezi(List<String> ezaugarri_berezi) {
+		this.ezaugarri_berezi = ezaugarri_berezi;
+	}
 
 
 
 
 	@Override
 	public String toString() {
-        return "Mugikorra [marka=" + marka + ", modeloa=" + modeloa + ", urtea=" + urtea + ", ram=" + ram + ", sistema eragilea=" + sistema_eragilea + ", pantaila=" + pantaila + "]";
+        return "Mugikorra [marka=" + marka + ", modeloa=" + modeloa + ", urtea=" + urtea + ", ram=" + ram + ", sistema eragilea=" + sistema_eragilea + ", pantaila-tamaina=" + tamaina + ", pantaila-resoluzioa=" + resoluzioa + ", pantaila-mota=" + mota + ", ezaugarri berezi aipagarriak=" + ezaugarri_berezi + "]";
 	}
 }
