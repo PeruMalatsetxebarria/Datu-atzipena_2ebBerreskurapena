@@ -16,18 +16,17 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 @Configuration
 public class SpringConfiguration {
 
-    @Value("${spring.data.mongodb.uri}")//application properties
+    @Value("${spring.data.mongodb.uri}")
     private String connectionString;
 
-    @Bean //Indicates that a method produces a bean to be managed by the Spring container. 
+    @Bean
     public MongoClient mongoClient() {
-        CodecRegistry pojoCodecRegistry = fromProviders(PojoCodecProvider.builder().automatic(true).build());//JavaObject <=> BSONdocument konbertsioa gauzatzeko 
+        CodecRegistry pojoCodecRegistry = fromProviders(PojoCodecProvider.builder().automatic(true).build());
         CodecRegistry codecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(), pojoCodecRegistry);
         return MongoClients.create(MongoClientSettings.builder()
                                                       .applyConnectionString(new ConnectionString(connectionString))
                                                       .codecRegistry(codecRegistry)
                                                       .build());
-        //return MongoClients.create();
     }
 
 }

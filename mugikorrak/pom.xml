@@ -3,13 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>dambi</groupId>
-    <artifactId>mongo-umeak</artifactId>
+    <groupId>mugikortalde</groupId>
+    <artifactId>mugikorrak</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-    <name>mongo-umeak</name>
+    <name>mugikorrak</name>
 
-    <description>Mongo "gabonak" datu-baseko "umeak" kolekzioko datuak kudeatzeko Rest APIa</description>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
