@@ -47,10 +47,8 @@ public class MainController {
 
 
 
-    @PostMapping(path = "/mugikorberria") // Map ONLY POST Requests
-	public @ResponseBody String addNewUser(@RequestParam String marka, @RequestParam String modeloa, @RequestParam int urtea, @RequestParam int ram, @RequestParam String sistema_eragilea, @RequestParam int memoria, @RequestParam String tamaina, @RequestParam String resoluzioa, @RequestParam String mota, @RequestParam List<String> ezaugarri_bereziBerri) {
-		// @ResponseBody means the returned String is the response, not a view name
-		// @RequestParam means it is a parameter from the GET or POST request
+    @PostMapping(path = "/mugikorberria")
+	public @ResponseBody String addNewUser(@RequestParam String marka, @RequestParam String modeloa, @RequestParam int urtea, @RequestParam int ram, @RequestParam String sistema_eragilea, @RequestParam int memoria, @RequestParam String tamaina, @RequestParam String neurriak, @RequestParam String mota, @RequestParam List<String> ezaugarri_bereziBerri) {
 
 		Mugikorra mugikorra = new Mugikorra();
 		mugikorra.setMarka(marka);
@@ -60,14 +58,14 @@ public class MainController {
         mugikorra.setSistema_eragilea(sistema_eragilea);
         mugikorra.setMemoria(memoria);
 		mugikorra.setTamaina(tamaina);
-        mugikorra.setResoluzioa(resoluzioa);
+        mugikorra.setNeurriak(neurriak);
         mugikorra.setMota(mota);
         mugikorra.setEzaugarri_berezi(ezaugarri_bereziBerri);
 		mugikorrakRepository.save(mugikorra);
 		return "Saved";
 	}
 	
-	@PutMapping(value = "/ezaugarri_bereziBerri/{modeloa}")
+	 @PutMapping(value = "/ezaugarri_bereziBerri/{modeloa}")
 	public ResponseEntity<Mugikorra> updateMugikorra(@Valid @RequestBody String ezaugarri_bereziBerri, @PathVariable String modeloa) {
 		try {
 			Mugikorra mugikorra= mugikorrakRepository.findById(modeloa);
@@ -82,6 +80,12 @@ public class MainController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+
+
+
+
+
+
 
 	@DeleteMapping(path = "/ezabatu/{mugikorraModeloa}")
 	public ResponseEntity<Void> deleteMugikorra(@PathVariable String mugikorraModeloa) {

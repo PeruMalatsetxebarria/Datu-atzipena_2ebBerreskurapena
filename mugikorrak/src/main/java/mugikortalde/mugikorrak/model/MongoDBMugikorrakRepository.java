@@ -63,20 +63,8 @@ public class MongoDBMugikorrakRepository implements MugikorrakRepository {
 
 
     @Override
-    public Mugikorra save2(Mugikorra mugikorra) {
-        /*mugikorra.setId(new ObjectId());
-        //mugikorraCollection.updateOne();
-        mugikorra.replaceOne();*/
-        return mugikorra;
-    }
-
-
-
-
-
-    @Override
     public long delete(String modeloa) {
         return mugikorraCollection.deleteMany(eq("modeloa", modeloa)).getDeletedCount();
-    } //marka be gehittubida
+    } 
 
 }

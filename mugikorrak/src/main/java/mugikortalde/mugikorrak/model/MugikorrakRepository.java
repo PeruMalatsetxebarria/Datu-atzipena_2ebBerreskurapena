@@ -10,6 +10,5 @@ public interface MugikorrakRepository {
     List<Mugikorra> findMarka(String marka);
     Mugikorra findById(String modeloa);
     Mugikorra save(Mugikorra person);
-    Mugikorra save2(Mugikorra person);
     long delete(String modeloa);
 }

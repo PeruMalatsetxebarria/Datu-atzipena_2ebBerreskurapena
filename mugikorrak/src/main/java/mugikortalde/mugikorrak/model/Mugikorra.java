@@ -20,7 +20,7 @@ public class Mugikorra {
 
 
 	private String tamaina;
-    private String resoluzioa;
+    private String neurriak;
 	private String mota;
 
 
@@ -106,12 +106,12 @@ public class Mugikorra {
 		this.tamaina = tamaina;
 	}
 
-	public String getResoluzioa() {
-		return resoluzioa;
+	public String getNeurriak() {
+		return neurriak;
 	}
 
-	public void setResoluzioa(String resoluzioa) {
-		this.resoluzioa = resoluzioa;
+	public void setNeurriak(String neurriak) {
+		this.neurriak = neurriak;
 	}
 
 	public String getMota() {
@@ -139,6 +139,6 @@ public class Mugikorra {
 
 	@Override
 	public String toString() {
-        return "Mugikorra [marka=" + marka + ", modeloa=" + modeloa + ", urtea=" + urtea + ", ram=" + ram + ", sistema eragilea=" + sistema_eragilea + ", pantaila-tamaina=" + tamaina + ", pantaila-resoluzioa=" + resoluzioa + ", pantaila-mota=" + mota + ", ezaugarri berezi aipagarriak=" + ezaugarri_berezi + "]";
+        return "Mugikorra [marka=" + marka + ", modeloa=" + modeloa + ", urtea=" + urtea + ", ram=" + ram + ", sistema eragilea=" + sistema_eragilea + ", pantaila-tamaina=" + tamaina + ", pantaila-neurriak=" + neurriak + ", pantaila-mota=" + mota + ", ezaugarri berezi aipagarriak=" + ezaugarri_berezi + "]";
 	}
 }
